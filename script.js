@@ -50,7 +50,7 @@ function submitReport(event) {
     submitButton.disabled = true;
     
     // ⭐ PASTE URL APPS SCRIPT ANDA DI SINI! ⭐
-    const APPS_SCRIPT_URL = 'PASTE_URL_ANDA_DI_SINI';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxu-e2pTFf9QYMdDlbb-bjXAJm_lXpH0P0cLwq0OJrDYMCdFiBjoo2S9njdAMMms9Zv/exec';
     
     // Kirim ke Google Sheets
     fetch(APPS_SCRIPT_URL, {
