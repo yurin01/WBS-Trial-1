@@ -117,7 +117,7 @@ function submitReport(event) {
     }
     
     // Kirim ke Google Sheets
-    fetch(APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyggrNeelI7y_NWoUDqGTFQf8jc0e1vezwN96QjiHKzsuzGnr7WK3ktexmxPsxKh90S/exec'), {
+    fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         body: JSON.stringify(reportData),
         headers: {
