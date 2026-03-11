@@ -106,10 +106,10 @@ function submitReport(event) {
     submitButton.disabled = true;
     
     // ⭐ GANTI DENGAN URL APPS SCRIPT ANDA! ⭐
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzk-y9hYdpBr-v0d5IDNvftWHkX0BX4pi1FOpmOYJqfeEAoPwRXGJKrag0Pm5OXaRRJ/exec';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyggrNeelI7y_NWoUDqGTFQf8jc0e1vezwN96QjiHKzsuzGnr7WK3ktexmxPsxKh90S/exec';
     
     // Cek apakah URL sudah diganti
-    if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbzk-y9hYdpBr-v0d5IDNvftWHkX0BX4pi1FOpmOYJqfeEAoPwRXGJKrag0Pm5OXaRRJ/exec') {
+    if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyggrNeelI7y_NWoUDqGTFQf8jc0e1vezwN96QjiHKzsuzGnr7WK3ktexmxPsxKh90S/exec') {
         alert('❌ Error: URL Apps Script belum dikonfigurasi!\n\nSilakan update file script.js dengan URL Apps Script Anda.');
         submitButton.innerHTML = originalText;
         submitButton.disabled = false;
@@ -117,7 +117,7 @@ function submitReport(event) {
     }
     
     // Kirim ke Google Sheets
-    fetch(APPS_SCRIPT_URL, {
+    fetch(APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyggrNeelI7y_NWoUDqGTFQf8jc0e1vezwN96QjiHKzsuzGnr7WK3ktexmxPsxKh90S/exec'), {
         method: 'POST',
         body: JSON.stringify(reportData),
         headers: {
