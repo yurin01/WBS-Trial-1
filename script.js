@@ -106,10 +106,10 @@ function submitReport(event) {
     submitButton.disabled = true;
     
     // ⭐ GANTI DENGAN URL APPS SCRIPT ANDA! ⭐
-    const APPS_SCRIPT_URL = 'PASTE_URL_APPS_SCRIPT_ANDA_DI_SINI';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxu-e2pTFf9QYMdDlbb-bjXAJm_lXpH0P0cLwq0OJrDYMCdFiBjoo2S9njdAMMms9Zv/exec';
     
     // Cek apakah URL sudah diganti
-    if (APPS_SCRIPT_URL === 'PASTE_URL_APPS_SCRIPT_ANDA_DI_SINI') {
+    if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxu-e2pTFf9QYMdDlbb-bjXAJm_lXpH0P0cLwq0OJrDYMCdFiBjoo2S9njdAMMms9Zv/exec') {
         alert('❌ Error: URL Apps Script belum dikonfigurasi!\n\nSilakan update file script.js dengan URL Apps Script Anda.');
         submitButton.innerHTML = originalText;
         submitButton.disabled = false;
