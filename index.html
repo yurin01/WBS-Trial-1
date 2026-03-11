@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whistleblowing System - Inspektorat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-placeholder">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="header-text">
+                        <h1 class="institution-title">Inspektorat Provinsi Jawa Barat</h1>
+                        <p class="institution-subtitle">Saluran Pengaduan Whistleblowing System</p>
+                    </div>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#tentang" class="nav-link">Tentang WBS</a>
+                    <a href="#fungsi" class="nav-link">Fungsi Inspektorat</a>
+                    <a href="#keamanan" class="nav-link">Keamanan</a>
+                    <a href="#cara-lapor" class="nav-link">Cara Lapor</a>
+                    <a href="#kontak" class="nav-link">Kontak</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2 class="hero-title">Saluran Pengaduan Whistleblowing System (WBS)</h2>
+                <p class="hero-subtitle">Laporkan Pelanggaran dengan Aman dan Rahasia</p>
+                <p class="hero-description">Sistem pelaporan yang melindungi identitas dan keselamatan Anda sesuai dengan peraturan perundangan yang berlaku</p>
+                <button class="btn btn-primary btn-large" onclick="scrollToSection('lapor-sekarang')">
+                    <i class="fas fa-paper-plane"></i> LAPORKAN SEKARANG
+                </button>
+            </div>
+            <div class="hero-image">
+                <svg class="hero-illustration" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Ilustrasi Perlindungan Data -->
+                    <circle cx="200" cy="200" r="150" fill="#E8F0F7"/>
+                    <path d="M200 100 L280 140 L280 200 Q280 260 200 300 Q120 260 120 200 L120 140 Z" fill="#003366" opacity="0.8"/>
+                    <circle cx="200" cy="190" r="35" fill="#FF6B35" opacity="0.9"/>
+                    <path d="M200 165 L200 190 M200 190 L215 190" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="200" cy="190" r="30" fill="none" stroke="#003366" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang WBS -->
+    <section id="tentang" class="section-wbs">
+        <div class="container">
+            <h2 class="section-title">Apa itu Whistleblowing System (WBS)?</h2>
+            <div class="wbs-content">
+                <div class="wbs-description">
+                    <p class="wbs-text">
+                        Whistleblowing System adalah sistem pelaporan pelanggaran yang melindungi pelapor (whistleblower) sesuai dengan:
+                    </p>
+                    <div class="regulation-box">
+                        <div class="regulation-item">
+                            <i class="fas fa-book"></i>
+                            <span>UU No. 19 Tahun 2019 tentang Perubahan Kedua UU KPK</span>
+                        </div>
+                        <div class="regulation-item">
+                            <i class="fas fa-book"></i>
+                            <span>Peraturan Perundangan tentang Perlindungan Whistleblower</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wbs-benefits">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Aman & Terpercaya</h3>
+                        <p>Sistem pelaporan yang aman dan dapat dipertanggungjawabkan</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3>Rahasia Terjaga</h3>
+                        <p>Identitas pelapor dijaga kerahasiaannya sepenuhnya</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Perlindungan Hukum</h3>
+                        <p>Jaminan perlindungan hukum bagi pelapor beritikad baik</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fungsi Inspektorat -->
+    <section id="fungsi" class="section-fungsi">
+        <div class="container">
+            <h2 class="section-title">Fungsi & Tugas Inspektorat</h2>
+            <p class="section-subtitle">Inspektorat bertugas melakukan pengawasan internal untuk menjaga integritas dan profesionalisme aparatur sipil negara</p>
+            
+            <div class="fungsi-grid">
+                <div class="fungsi-card">
+                    <div class="fungsi-icon">
+                        <i class="fas fa-binoculars"></i>
+                    </div>
+                    <h3>Pembinaan & Pengawasan Internal</h3>
+                    <p>Melaksanakan pembinaan dan pengawasan internal terhadap seluruh unit kerja dalam lingkungan instansi untuk memastikan penyelenggaraan pemerintahan yang efektif dan efisien.</p>
+                </div>
+
+                <div class="fungsi-card">
+                    <div class="fungsi-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Pencegahan Korupsi, Gratifikasi & Benturan Kepentingan</h3>
+                    <p>Melakukan upaya pencegahan terhadap terjadinya tindak pidana korupsi, gratifikasi, dan benturan kepentingan melalui edukasi dan sosialisasi berkelanjutan.</p>
+                </div>
+
+                <div class="fungsi-card">
+                    <div class="fungsi-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Penegakan Disiplin ASN</h3>
+                    <p>Menegakkan disiplin Aparatur Sipil Negara melalui proses investigasi yang profesional dan objektif untuk memastikan akuntabilitas dan kewajaran dalam penyelenggaraan tugas pemerintahan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keamanan & Kerahasiaan -->
+    <section id="keamanan" class="section-keamanan">
+        <div class="container">
+            <h2 class="section-title">Jaminan Keamanan & Kerahasiaan</h2>
+            <p class="section-subtitle">Privasi dan keselamatan Anda adalah prioritas utama kami</p>
+
+            <div class="security-grid">
+                <div class="security-box">
+                    <div class="security-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Enkripsi Data</h3>
+                    <p>Semua data laporan dienkripsi menggunakan teknologi enkripsi tingkat enterprise untuk melindungi informasi sensitif Anda dari akses tidak sah.</p>
+                </div>
+
+                <div class="security-box">
+                    <div class="security-icon">
+                        <i class="fas fa-mask"></i>
+                    </div>
+                    <h3>Pelaporan Anonim</h3>
+                    <p>Anda dapat melaporkan pelanggaran secara anonim tanpa perlu memberikan identitas pribadi Anda kepada sistem.</p>
+                </div>
+
+                <div class="security-box">
+                    <div class="security-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Perlindungan Hukum</h3>
+                    <p>Perlindungan hukum penuh dijamin bagi pelapor yang melakukan pelaporan dengan itikad baik sesuai dengan peraturan perundangan yang berlaku.</p>
+                </div>
+
+                <div class="security-box">
+                    <div class="security-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Riwayat Terlacak</h3>
+                    <p>Data laporan akan diproses dan ditindaklanjuti oleh tim Inspektorat dengan profesional dan terpercaya.</p>
+                </div>
+
+                <div class="security-box">
+                    <div class="security-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Server Aman</h3>
+                    <p>Data disimpan di server yang aman dengan backup rutin dan proteksi berlapis untuk mencegah kehilangan data.</p>
+                </div>
+
+                <div class="security-box">
+                    <div class="security-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Akses Terbatas</h3>
+                    <p>Hanya personel yang berwenang dan terlatih yang dapat mengakses data laporan dengan sistem kontrol akses yang ketat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cara Melapor -->
+    <section id="cara-lapor" class="section-cara-lapor">
+        <div class="container">
+            <h2 class="section-title">Cara Melapor - 3 Langkah Mudah</h2>
+            <p class="section-subtitle">Proses pelaporan yang sederhana dan cepat</p>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Klik Tombol "Buat Laporan"</h3>
+                        <p>Tekan tombol di bawah untuk memulai proses pelaporan. Anda akan diarahkan ke formulir pelaporan yang mudah diisi.</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                </div>
+
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Isi Form Pengaduan</h3>
+                        <p>Isikan detail pelanggaran yang Anda laporkan. Semakin detail informasi yang Anda berikan, semakin mudah kami untuk menindaklanjuti.</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                </div>
+
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Laporan Diproses</h3>
+                        <p>Laporan Anda akan segera diproses oleh tim Inspektorat. Tim kami akan menindaklanjuti laporan sesuai dengan prosedur yang berlaku.</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="lapor-sekarang" class="section-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Siap untuk Melaporkan?</h2>
+                <p>Bergabunglah dengan ribuan pelapor yang telah membantu menjaga integritas instansi pemerintah. Laporan Anda penting dan akan ditangani dengan serius.</p>
+                <button class="btn btn-primary btn-large" onclick="openReportForm()">
+                    <i class="fas fa-plus-circle"></i> BUAT LAPORAN BARU
+                </button>
+                <p class="cta-note">Atau hubungi kami melalui kontak di bawah untuk pertanyaan lebih lanjut</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Pengelola WBS</h4>
+                    <div class="footer-info">
+                        <p><i class="fas fa-phone"></i> <strong>Telepon:</strong> (0274) 513-125 ext. 1234</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> wbs@inspektorat.go.id</p>
+                        <p><i class="fas fa-mobile-alt"></i> <strong>WhatsApp:</strong> +62 812-3456-7890</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Alamat Kantor</h4>
+                    <div class="footer-info">
+                        <p><i class="fas fa-map-marker-alt"></i></p>
+                        <p>Jl. Inspektorat No. 1<br>
+                        Gedung Inspektorat Lantai 3<br>
+                        Kota Bandung, Jawa Barat 40123<br>
+                        Indonesia</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Jam Operasional</h4>
+                    <div class="footer-info">
+                        <p><i class="fas fa-clock"></i></p>
+                        <p>Senin - Jumat: 07:30 - 16:00 WIB<br>
+                        Istirahat: 12:00 - 13:00 WIB<br>
+                        Sabtu, Minggu & Hari Libur Nasional: Tutup</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Media Sosial</h4>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p><strong>Disclaimer:</strong> Semua pelaporan dilakukan sesuai dengan Undang-Undang No. 19 Tahun 2019 tentang Perubahan Kedua UU KPK dan peraturan perundangan lainnya yang berlaku. Perlindungan identitas pelapor adalah tanggung jawab penuh Inspektorat. Laporan yang dibuat dengan itikad tidak baik atau berisi informasi palsu akan diproses sesuai dengan hukum yang berlaku.</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Inspektorat Provinsi Jawa Barat. Semua Hak Dilindungi. | Whistleblowing System v1.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal untuk Form Laporan -->
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeReportForm()">&times;</span>
+            <h2>Formulir Pelaporan Whistleblowing</h2>
+            <form id="reportForm" onsubmit="submitReport(event)">
+                <div class="form-group">
+                    <label for="report-category">Kategori Pelanggaran *</label>
+                    <select id="report-category" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        <option value="korupsi">Korupsi</option>
+                        <option value="gratifikasi">Gratifikasi</option>
+                        <option value="benturan-kepentingan">Benturan Kepentingan</option>
+                        <option value="pelanggaran-disiplin">Pelanggaran Disiplin ASN</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="report-date">Tanggal Pelanggaran *</label>
+                    <input type="date" id="report-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="report-location">Lokasi/Unit Pelanggaran *</label>
+                    <input type="text" id="report-location" placeholder="Contoh: Bagian Keuangan, Lantai 2" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="report-description">Deskripsi Pelanggaran *</label>
+                    <textarea id="report-description" rows="5" placeholder="Jelaskan detail pelanggaran yang Anda laporkan..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="report-evidence">Bukti/Dokumen (opsional)</label>
+                    <input type="file" id="report-evidence" accept=".pdf,.doc,.docx,.jpg,.png">
+                    <small>Format file: PDF, DOC, DOCX, JPG, PNG (Maks. 5MB)</small>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="report-anonymous" checked>
+                        Laporkan secara anonim
+                    </label>
+                </div>
+
+                <div class="form-group" id="reporter-info" style="display: none;">
+                    <label for="report-name">Nama Lengkap (opsional)</label>
+                    <input type="text" id="report-name" placeholder="Nama Anda">
+
+                    <label for="report-email">Email (opsional)</label>
+                    <input type="email" id="report-email" placeholder="Email Anda">
+
+                    <label for="report-phone">Nomor Telepon (opsional)</label>
+                    <input type="tel" id="report-phone" placeholder="Nomor Telepon Anda">
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="report-agree" required>
+                        Saya telah membaca dan menyetujui Syarat & Ketentuan serta Kebijakan Privasi
+                    </label>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeReportForm()">Batal</button>
+                    <button type="submit" class="btn btn-primary">Kirim Laporan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Konfirmasi Laporan Terkirim -->
+    <div id="successModal" class="modal">
+        <div class="modal-content modal-success">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Laporan Berhasil Dikirim</h2>
+            <p>Terima kasih telah melaporkan pelanggaran. Laporan Anda telah diterima dan akan segera ditinjau oleh tim Inspektorat.</p>
+            
+            <div class="success-info">
+                <h4>Instruksi Selanjutnya:</h4>
+                <ul>
+                    <li>Tim kami akan meninjau laporan Anda dengan serius</li>
+                    <li>Proses investigasi biasanya memakan waktu 7-14 hari kerja</li>
+                    <li>Jika Anda memberikan kontak, tim kami akan menghubungi untuk informasi lebih lanjut</li>
+                    <li>Identitas Anda akan dijaga kerahasiaannya sepenuhnya</li>
+                </ul>
+            </div>
+
+            <button class="btn btn-primary" onclick="closeSuccessModal()">Tutup</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
