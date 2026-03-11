@@ -3,9 +3,917 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whistleblowing System - Inspektorat</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Whistleblowing System - Inspektorat Jawa Barat</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #FF6B35;
+            --accent-color: #FFB703;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #E0E0E0;
+            --success-color: #28A745;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        .header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--white);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .header-text h1 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .header-text p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #004C99 100%);
+            color: var(--white);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(255, 183, 3, 0.1);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .hero-description {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-illustration {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* BUTTONS */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #E55A2B;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 16px;
+        }
+
+        /* SECTIONS */
+        .section-wbs, .section-fungsi, .section-keamanan, .section-cara-lapor {
+            padding: 80px 0;
+        }
+
+        .section-wbs { background-color: var(--light-bg); }
+        .section-fungsi { background-color: var(--white); }
+        .section-keamanan { background-color: var(--light-bg); }
+        .section-cara-lapor { background-color: var(--white); }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 50px;
+        }
+
+        /* WBS SECTION */
+        .wbs-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .wbs-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .regulation-box {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .regulation-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .regulation-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .regulation-item i {
+            color: var(--secondary-color);
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .regulation-item span {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .wbs-benefits {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .benefit-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #E8F0F7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 28px;
+            color: var(--primary-color);
+        }
+
+        .benefit-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* FUNGSI */
+        .fungsi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .fungsi-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .fungsi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-top-color: var(--primary-color);
+        }
+
+        .fungsi-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #004C99 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .fungsi-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .fungsi-card p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* KEAMANAN */
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .security-box {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .security-box:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            background-color: #F0F7FF;
+        }
+
+        .security-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #FFF4E6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--secondary-color);
+        }
+
+        .security-box h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .security-box p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        /* STEPS */
+        .steps-container {
+            max-width: 900px;
+            margin: 50px auto 0;
+        }
+
+        .step {
+            background-color: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-lg);
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #004C99 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .step-icon {
+            font-size: 40px;
+            color: var(--secondary-color);
+            flex-shrink: 0;
+        }
+
+        .step-arrow {
+            text-align: center;
+            font-size: 24px;
+            color: var(--primary-color);
+            margin: 20px 0;
+        }
+
+        /* CTA */
+        .section-cta {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #004C99 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-note {
+            font-size: 13px;
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-info {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-info p {
+            margin-bottom: 10px;
+        }
+
+        .footer-info i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-disclaimer {
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 6px;
+            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 12px;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: var(--text-light);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: var(--text-dark);
+        }
+
+        .modal-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        /* FORM */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+        }
+
+        .form-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 5px;
+            color: var(--text-light);
+            font-size: 12px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: flex-end;
+        }
+
+        .form-buttons button {
+            flex: 1;
+        }
+
+        /* SUCCESS MODAL */
+        .modal-success {
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #E8F5E9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 48px;
+            color: var(--success-color);
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .modal-success h2 {
+            color: var(--success-color);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .modal-success > p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .success-info {
+            background-color: #E8F0F7;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .success-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .success-info ul {
+            list-style-position: inside;
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-image {
+                max-width: 300px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .wbs-content {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .fungsi-grid,
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 20px auto;
+                padding: 20px;
+            }
+
+            .form-buttons {
+                flex-direction: column;
+            }
+
+            .form-buttons button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 16px;
+            }
+
+            .logo-section {
+                gap: 10px;
+            }
+
+            .logo-placeholder {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .hero-title {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .nav-link {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -23,7 +931,7 @@
                 </div>
                 <nav class="nav-menu">
                     <a href="#tentang" class="nav-link">Tentang WBS</a>
-                    <a href="#fungsi" class="nav-link">Fungsi Inspektorat</a>
+                    <a href="#fungsi" class="nav-link">Fungsi</a>
                     <a href="#keamanan" class="nav-link">Keamanan</a>
                     <a href="#cara-lapor" class="nav-link">Cara Lapor</a>
                     <a href="#kontak" class="nav-link">Kontak</a>
@@ -46,7 +954,6 @@
                 </div>
                 <div class="hero-image">
                     <svg class="hero-illustration" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Ilustrasi Perlindungan Data -->
                         <circle cx="200" cy="200" r="150" fill="#E8F0F7"/>
                         <path d="M200 100 L280 140 L280 200 Q280 260 200 300 Q120 260 120 200 L120 140 Z" fill="#003366" opacity="0.8"/>
                         <circle cx="200" cy="190" r="35" fill="#FF6B35" opacity="0.9"/>
@@ -64,9 +971,7 @@
             <h2 class="section-title">Apa itu Whistleblowing System (WBS)?</h2>
             <div class="wbs-content">
                 <div class="wbs-description">
-                    <p class="wbs-text">
-                        Whistleblowing System adalah sistem pelaporan pelanggaran yang melindungi pelapor (whistleblower) sesuai dengan:
-                    </p>
+                    <p class="wbs-text">Whistleblowing System adalah sistem pelaporan pelanggaran yang melindungi pelapor (whistleblower) sesuai dengan:</p>
                     <div class="regulation-box">
                         <div class="regulation-item">
                             <i class="fas fa-book"></i>
@@ -80,23 +985,17 @@
                 </div>
                 <div class="wbs-benefits">
                     <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-lock"></i>
-                        </div>
+                        <div class="benefit-icon"><i class="fas fa-lock"></i></div>
                         <h3>Aman & Terpercaya</h3>
                         <p>Sistem pelaporan yang aman dan dapat dipertanggungjawabkan</p>
                     </div>
                     <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-user-secret"></i>
-                        </div>
+                        <div class="benefit-icon"><i class="fas fa-user-secret"></i></div>
                         <h3>Rahasia Terjaga</h3>
                         <p>Identitas pelapor dijaga kerahasiaannya sepenuhnya</p>
                     </div>
                     <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-gavel"></i>
-                        </div>
+                        <div class="benefit-icon"><i class="fas fa-gavel"></i></div>
                         <h3>Perlindungan Hukum</h3>
                         <p>Jaminan perlindungan hukum bagi pelapor beritikad baik</p>
                     </div>
@@ -110,28 +1009,19 @@
         <div class="container">
             <h2 class="section-title">Fungsi & Tugas Inspektorat</h2>
             <p class="section-subtitle">Inspektorat bertugas melakukan pengawasan internal untuk menjaga integritas dan profesionalisme aparatur sipil negara</p>
-            
             <div class="fungsi-grid">
                 <div class="fungsi-card">
-                    <div class="fungsi-icon">
-                        <i class="fas fa-binoculars"></i>
-                    </div>
+                    <div class="fungsi-icon"><i class="fas fa-binoculars"></i></div>
                     <h3>Pembinaan & Pengawasan Internal</h3>
                     <p>Melaksanakan pembinaan dan pengawasan internal terhadap seluruh unit kerja dalam lingkungan instansi untuk memastikan penyelenggaraan pemerintahan yang efektif dan efisien.</p>
                 </div>
-
                 <div class="fungsi-card">
-                    <div class="fungsi-icon">
-                        <i class="fas fa-shield-virus"></i>
-                    </div>
+                    <div class="fungsi-icon"><i class="fas fa-shield-virus"></i></div>
                     <h3>Pencegahan Korupsi, Gratifikasi & Benturan Kepentingan</h3>
                     <p>Melakukan upaya pencegahan terhadap terjadinya tindak pidana korupsi, gratifikasi, dan benturan kepentingan melalui edukasi dan sosialisasi berkelanjutan.</p>
                 </div>
-
                 <div class="fungsi-card">
-                    <div class="fungsi-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
+                    <div class="fungsi-icon"><i class="fas fa-balance-scale"></i></div>
                     <h3>Penegakan Disiplin ASN</h3>
                     <p>Menegakkan disiplin Aparatur Sipil Negara melalui proses investigasi yang profesional dan objektif untuk memastikan akuntabilitas dan kewajaran dalam penyelenggaraan tugas pemerintahan.</p>
                 </div>
@@ -139,57 +1029,39 @@
         </div>
     </section>
 
-    <!-- Keamanan & Kerahasiaan -->
+    <!-- Keamanan -->
     <section id="keamanan" class="section-keamanan">
         <div class="container">
             <h2 class="section-title">Jaminan Keamanan & Kerahasiaan</h2>
             <p class="section-subtitle">Privasi dan keselamatan Anda adalah prioritas utama kami</p>
-
             <div class="security-grid">
                 <div class="security-box">
-                    <div class="security-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
+                    <div class="security-icon"><i class="fas fa-lock"></i></div>
                     <h3>Enkripsi Data</h3>
                     <p>Semua data laporan dienkripsi menggunakan teknologi enkripsi tingkat enterprise untuk melindungi informasi sensitif Anda dari akses tidak sah.</p>
                 </div>
-
                 <div class="security-box">
-                    <div class="security-icon">
-                        <i class="fas fa-mask"></i>
-                    </div>
+                    <div class="security-icon"><i class="fas fa-mask"></i></div>
                     <h3>Pelaporan Anonim</h3>
                     <p>Anda dapat melaporkan pelanggaran secara anonim tanpa perlu memberikan identitas pribadi Anda kepada sistem.</p>
                 </div>
-
                 <div class="security-box">
-                    <div class="security-icon">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
+                    <div class="security-icon"><i class="fas fa-user-shield"></i></div>
                     <h3>Perlindungan Hukum</h3>
                     <p>Perlindungan hukum penuh dijamin bagi pelapor yang melakukan pelaporan dengan itikad baik sesuai dengan peraturan perundangan yang berlaku.</p>
                 </div>
-
                 <div class="security-box">
-                    <div class="security-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
+                    <div class="security-icon"><i class="fas fa-history"></i></div>
                     <h3>Riwayat Terlacak</h3>
                     <p>Data laporan akan diproses dan ditindaklanjuti oleh tim Inspektorat dengan profesional dan terpercaya.</p>
                 </div>
-
                 <div class="security-box">
-                    <div class="security-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
+                    <div class="security-icon"><i class="fas fa-server"></i></div>
                     <h3>Server Aman</h3>
                     <p>Data disimpan di server yang aman dengan backup rutin dan proteksi berlapis untuk mencegah kehilangan data.</p>
                 </div>
-
                 <div class="security-box">
-                    <div class="security-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                    <div class="security-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Akses Terbatas</h3>
                     <p>Hanya personel yang berwenang dan terlatih yang dapat mengakses data laporan dengan sistem kontrol akses yang ketat.</p>
                 </div>
@@ -202,7 +1074,6 @@
         <div class="container">
             <h2 class="section-title">Cara Melapor - 3 Langkah Mudah</h2>
             <p class="section-subtitle">Proses pelaporan yang sederhana dan cepat</p>
-
             <div class="steps-container">
                 <div class="step">
                     <div class="step-number">1</div>
@@ -210,45 +1081,31 @@
                         <h3>Klik Tombol "Buat Laporan"</h3>
                         <p>Tekan tombol di bawah untuk memulai proses pelaporan. Anda akan diarahkan ke formulir pelaporan yang mudah diisi.</p>
                     </div>
-                    <div class="step-icon">
-                        <i class="fas fa-mouse-pointer"></i>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-mouse-pointer"></i></div>
                 </div>
-
-                <div class="step-arrow">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-
+                <div class="step-arrow"><i class="fas fa-arrow-down"></i></div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>Isi Form Pengaduan</h3>
                         <p>Isikan detail pelanggaran yang Anda laporkan. Semakin detail informasi yang Anda berikan, semakin mudah kami untuk menindaklanjuti.</p>
                     </div>
-                    <div class="step-icon">
-                        <i class="fas fa-edit"></i>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-edit"></i></div>
                 </div>
-
-                <div class="step-arrow">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-
+                <div class="step-arrow"><i class="fas fa-arrow-down"></i></div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Simpan Kode Tracking untuk Pantau Progress</h3>
-                        <p>Setelah laporan dikirim, Anda akan menerima kode tracking unik. Gunakan kode ini untuk memantau progress laporan Anda.</p>
+                        <h3>Laporan Diproses</h3>
+                        <p>Laporan Anda akan segera diproses oleh tim Inspektorat. Tim kami akan menindaklanjuti laporan sesuai dengan prosedur yang berlaku.</p>
                     </div>
-                    <div class="step-icon">
-                        <i class="fas fa-barcode"></i>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-check-circle"></i></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action Section -->
+    <!-- CTA -->
     <section id="lapor-sekarang" class="section-cta">
         <div class="container">
             <div class="cta-content">
@@ -274,28 +1131,20 @@
                         <p><i class="fas fa-mobile-alt"></i> <strong>WhatsApp:</strong> +62 812-3456-7890</p>
                     </div>
                 </div>
-
                 <div class="footer-section">
                     <h4>Alamat Kantor</h4>
                     <div class="footer-info">
                         <p><i class="fas fa-map-marker-alt"></i></p>
-                        <p>Jl. Inspektorat No. 1<br>
-                        Gedung Inspektorat Lantai 3<br>
-                        Kota Bandung, Jawa Barat 40123<br>
-                        Indonesia</p>
+                        <p>Jl. Inspektorat No. 1<br>Gedung Inspektorat Lantai 3<br>Kota Bandung, Jawa Barat 40123<br>Indonesia</p>
                     </div>
                 </div>
-
                 <div class="footer-section">
                     <h4>Jam Operasional</h4>
                     <div class="footer-info">
                         <p><i class="fas fa-clock"></i></p>
-                        <p>Senin - Jumat: 07:30 - 16:00 WIB<br>
-                        Istirahat: 12:00 - 13:00 WIB<br>
-                        Sabtu, Minggu & Hari Libur Nasional: Tutup</p>
+                        <p>Senin - Jumat: 07:30 - 16:00 WIB<br>Istirahat: 12:00 - 13:00 WIB<br>Sabtu, Minggu & Hari Libur Nasional: Tutup</p>
                     </div>
                 </div>
-
                 <div class="footer-section">
                     <h4>Media Sosial</h4>
                     <div class="social-links">
@@ -306,18 +1155,16 @@
                     </div>
                 </div>
             </div>
-
             <div class="footer-disclaimer">
-                <p><strong>Disclaimer:</strong> Semua pelaporan dilakukan sesuai dengan Undang-Undang No. 19 Tahun 2019 tentang Perubahan Kedua UU KPK dan peraturan perundangan lainnya yang berlaku. Perlindungan identitas pelapor adalah tanggung jawab penuh Inspektorat. Laporan yang dibuat dengan itikad tidak baik atau berisi informasi palsu akan diproses sesuai dengan hukum yang berlaku.</p>
+                <p><strong>Disclaimer:</strong> Semua pelaporan dilakukan sesuai dengan Undang-Undang No. 19 Tahun 2019 tentang Perubahan Kedua UU KPK dan peraturan perundangan lainnya yang berlaku.</p>
             </div>
-
             <div class="footer-bottom">
                 <p>&copy; 2026 Inspektorat Provinsi Jawa Barat. Semua Hak Dilindungi. | Whistleblowing System v1.0</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal untuk Form Laporan -->
+    <!-- Report Modal -->
     <div id="reportModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeReportForm()">&times;</span>
@@ -334,53 +1181,32 @@
                         <option value="lainnya">Lainnya</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="report-date">Tanggal Pelanggaran *</label>
                     <input type="date" id="report-date" required>
                 </div>
-
                 <div class="form-group">
                     <label for="report-location">Lokasi/Unit Pelanggaran *</label>
                     <input type="text" id="report-location" placeholder="Contoh: Bagian Keuangan, Lantai 2" required>
                 </div>
-
                 <div class="form-group">
                     <label for="report-description">Deskripsi Pelanggaran *</label>
                     <textarea id="report-description" rows="5" placeholder="Jelaskan detail pelanggaran yang Anda laporkan..." required></textarea>
                 </div>
-
                 <div class="form-group">
-                    <label for="report-evidence">Bukti/Dokumen (opsional)</label>
-                    <input type="file" id="report-evidence" accept=".pdf,.doc,.docx,.jpg,.png">
-                    <small>Format file: PDF, DOC, DOCX, JPG, PNG (Maks. 5MB)</small>
+                    <label><input type="checkbox" id="report-anonymous" checked> Laporkan secara anonim</label>
                 </div>
-
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" id="report-anonymous" checked>
-                        Laporkan secara anonim
-                    </label>
-                </div>
-
                 <div class="form-group" id="reporter-info" style="display: none;">
                     <label for="report-name">Nama Lengkap (opsional)</label>
                     <input type="text" id="report-name" placeholder="Nama Anda">
-
                     <label for="report-email">Email (opsional)</label>
                     <input type="email" id="report-email" placeholder="Email Anda">
-
                     <label for="report-phone">Nomor Telepon (opsional)</label>
                     <input type="tel" id="report-phone" placeholder="Nomor Telepon Anda">
                 </div>
-
                 <div class="form-group checkbox-group">
-                    <label>
-                        <input type="checkbox" id="report-agree" required>
-                        Saya telah membaca dan menyetujui Syarat & Ketentuan serta Kebijakan Privasi
-                    </label>
+                    <label><input type="checkbox" id="report-agree" required> Saya telah membaca dan menyetujui Syarat & Ketentuan serta Kebijakan Privasi</label>
                 </div>
-
                 <div class="form-buttons">
                     <button type="button" class="btn btn-secondary" onclick="closeReportForm()">Batal</button>
                     <button type="submit" class="btn btn-primary">Kirim Laporan</button>
@@ -389,15 +1215,12 @@
         </div>
     </div>
 
-    <!-- Modal Konfirmasi Laporan Terkirim -->
+    <!-- Success Modal -->
     <div id="successModal" class="modal">
         <div class="modal-content modal-success">
-            <div class="success-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
             <h2>Laporan Berhasil Dikirim</h2>
             <p>Terima kasih telah melaporkan pelanggaran. Laporan Anda telah diterima dan akan segera ditinjau oleh tim Inspektorat.</p>
-            
             <div class="success-info">
                 <h4>Instruksi Selanjutnya:</h4>
                 <ul>
@@ -407,11 +1230,163 @@
                     <li>Identitas Anda akan dijaga kerahasiaannya sepenuhnya</li>
                 </ul>
             </div>
-
             <button class="btn btn-primary" onclick="closeSuccessModal()">Tutup</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function openReportForm() {
+            document.getElementById('reportModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeReportForm() {
+            document.getElementById('reportModal').style.display = 'none';
+            document.getElementById('reportForm').reset();
+            document.getElementById('reporter-info').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            let reportModal = document.getElementById('reportModal');
+            let successModal = document.getElementById('successModal');
+            if (event.target == reportModal) closeReportForm();
+            if (event.target == successModal) closeSuccessModal();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const anonymousCheckbox = document.getElementById('report-anonymous');
+            const reporterInfo = document.getElementById('reporter-info');
+            
+            if (anonymousCheckbox) {
+                anonymousCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        reporterInfo.style.display = 'none';
+                    } else {
+                        reporterInfo.style.display = 'block';
+                    }
+                });
+            }
+
+            const dateInput = document.getElementById('report-date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.value = today;
+            }
+        });
+
+        function submitReport(event) {
+            event.preventDefault();
+            
+            const category = document.getElementById('report-category').value;
+            const date = document.getElementById('report-date').value;
+            const location = document.getElementById('report-location').value;
+            const description = document.getElementById('report-description').value;
+            const agree = document.getElementById('report-agree').checked;
+            
+            if (!category || !date || !location || !description) {
+                alert('Mohon lengkapi semua field yang diperlukan!');
+                return;
+            }
+            
+            if (!agree) {
+                alert('Anda harus menyetujui Syarat & Ketentuan!');
+                return;
+            }
+
+            const reportData = {
+                category: category,
+                date: date,
+                location: location,
+                description: description,
+                anonymous: document.getElementById('report-anonymous').checked,
+                name: document.getElementById('report-name').value || '',
+                email: document.getElementById('report-email').value || '',
+                phone: document.getElementById('report-phone').value || ''
+            };
+
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+            submitButton.disabled = true;
+
+            const APPS_SCRIPT_URL = 'GANTI_DENGAN_URL_APPS_SCRIPT_ANDA';
+
+            if (APPS_SCRIPT_URL === 'GANTI_DENGAN_URL_APPS_SCRIPT_ANDA') {
+                const reports = JSON.parse(localStorage.getItem('wbs-reports') || '[]');
+                reports.push({
+                    ...reportData,
+                    timestamp: new Date().toISOString(),
+                    status: 'Disimpan Lokal'
+                });
+                localStorage.setItem('wbs-reports', JSON.stringify(reports));
+                
+                closeReportForm();
+                showSuccessModal();
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+                return;
+            }
+
+            fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(reportData),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    closeReportForm();
+                    showSuccessModal();
+                } else {
+                    alert('Gagal: ' + result.message);
+                }
+            })
+            .catch(error => {
+                alert('Error: ' + error.message);
+            })
+            .finally(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            });
+        }
+
+        function showSuccessModal() {
+            document.getElementById('successModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#lapor-sekarang') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeReportForm();
+                closeSuccessModal();
+            }
+        });
+    </script>
 </body>
 </html>
